@@ -111,7 +111,7 @@ main{
 	background-color: #333333; /* Verde más oscuro */
 }
 /* Para controlar el tamaño de la imagen DENTRO del botón */
-.boton-wsp img {
+.boton-wsp img{
 	width: 70px;  /* Ajusta este tamaño como quieras */
 	height: 70px; /* Ajusta este tamaño como quieras */
 	border-radius: 50%;
