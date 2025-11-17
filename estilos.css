@@ -1,0 +1,356 @@
+@font-face{
+	font-family:"Crafter Signature Serif";
+	src:url("fuentes/Crafter Signature Serif.ttf");
+}
+@font-face{
+	font-family:"East Border";
+	src:url("fuentes/East Border.ttf");
+}
+@font-face{
+	font-family:"Bebas";
+	src:url("fuentes/Bebas-Regular.ttf");
+}
+@font-face{
+	font-family:"CocogooseProDarkmodetrial";
+	src:url("fuentes/Cocogoose-Pro-Darkmode-trial.ttf");
+}
+@font-face{
+	font-family:"Akira Expanded Demo";
+	src:url("fuentes/Akira Expanded Demo.otf");
+}
+
+body{
+  background-color:black;
+  background-image:url("imagenes/fondo.jpg");
+}
+header{
+	
+	height:auto;
+	width:100%;
+	background: transparent;
+	display:flex;
+	/*alineación de los hijos: .logo ; nav*/
+	justify-content: space-evenly;
+	align-items: center;
+}
+nav{
+	height:auto;
+	width:80%;
+	background-color:transparent;
+	display:flex;
+	justify-content:space-around;
+	align-items:center;
+	
+}
+nav a:link, nav a:visited{
+	display:flex;
+	height:40px;
+	background-color:;
+	width:30%;
+	justify-content:space-around;
+	align-items:center;
+	text-decoration:none;
+	font-weight:bold;
+	color:#b89018;
+	/*border-radius:10px;*/
+	font-family:"ZT Otez";
+	padding-bottom:40px;
+	padding-top:60px;
+	transition:all 0.5s;
+	font-family:"Bebas";
+	font-size:25px;
+}
+nav a:hover{
+	/*transition:all 0.2s;*/
+	color:white;
+	background-color:;
+	font-size:40px;
+	border-bottom-style:solid;
+	border-bottom-width:7px;
+	border-bottom-color:white;
+	
+}
+main{
+	height:auto;
+	width:100%;
+	background-color:transparent;
+	display:flex;
+	/*alineación de los hijos: .texto ; .foto*/
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction:column;
+	
+}
+.boton-wsp {
+	position: fixed; /* Se queda fijo en la pantalla */
+	width: 70px;
+	height: 70px;
+	bottom: 24px;   /* Distancia desde abajo */
+	right: 24px;    /* Distancia desde la derecha */
+	
+	background-color: #000000; /* Color de WhatsApp */
+	color: #FFF;
+	border-radius: 50px; /* Lo hace redondo */
+	text-align: center;
+	
+	/* Sombras para que resalte */
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+	
+	/* Para centrar el ícono SVG */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	z-index: 100; /* Se asegura que esté por encima de todo */
+	transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Efecto simple al pasar el mouse */
+.boton-wsp:hover {
+	transform: scale(1.1); /* Lo agranda un poco */
+	background-color: #333333; /* Verde más oscuro */
+}
+/* Para controlar el tamaño de la imagen DENTRO del botón */
+.boton-wsp img {
+	width: 70px;  /* Ajusta este tamaño como quieras */
+	height: 70px; /* Ajusta este tamaño como quieras */
+	border-radius: 50%;
+}
+
+
+.boton-conocenos {
+    /* Color de fondo y texto */
+    background-color:transparent; /* Fondo negro */
+    color: #ffffff; /* Texto blanco */
+    
+    /* Fuente y espaciado */
+    font-family: Arial, sans-serif; /* Puedes usar la fuente que desees */
+    font-size: 18px; /* Tamaño del texto */
+    padding: 12px 25px; /* Espaciado interno (arriba/abajo, izquierda/derecha) */
+    
+    /* Eliminar el subrayado de los enlaces */
+    text-decoration: none;
+    
+    /* Convertir el enlace a un bloque para que el padding y width funcionen */
+    display: inline-block;
+    
+    /* Los bordes, clave para la forma */
+    border: 1px solid #ffffff; /* Contorno blanco de 2px, sólido */
+    border-radius: 2px; /* Opcional: un ligero borde redondeado */
+	transition:all 0.5s;
+	font-size:20px;
+}
+
+/* Efecto al pasar el mouse (opcional, para hacerlo interactivo) */
+.boton-conocenos:hover {
+    /* Por ejemplo, puedes cambiar el color del borde o del fondo */
+	background-color:#b89018;
+    border-color:#b89018;   /* Un gris más suave al pasar el mouse */
+    cursor: pointer; /* Indica que es clickeable */
+	font-size:24px;
+}
+.padre{
+	display:flex;
+	background-color:transparent;
+	width:100%;
+	height:auto;
+	align-items:center;
+	justify-content:space-evenly;
+}
+.hijo{
+	background-color:transparent;
+	width:41%;
+	height:80%;
+	
+}
+.hermano{
+	background-color:transparent;
+	width:51%;
+	height:auto;
+	
+}
+.h1-1{
+	font-size:80px;
+	color:white;
+	font-family:"East Border";
+	letter-spacing:5px;
+}
+.nosotros{
+	font-size:30px;
+	color:white;
+	font-family:"CocogooseProDarkmodetrial"
+}
+.img1 img{
+   height:auto;
+    margin-left:20px;
+   margin-right:20px;
+    border-style:double;
+   border-color:#fcba03;
+   border-radius:20px;
+	
+}
+.img1 h2{
+   height:auto;
+    margin-left:20px;
+   margin-right:20px;
+	
+}
+.img1 h1{
+   height:auto;
+    margin-left:20px;
+   margin-right:20px;
+	
+}
+
+.img2 img{
+   height:auto;
+    width:80%;
+    margin-left:20px;
+   margin-right:20px;
+    border-style:double;
+   border-color:#fcba03;
+   border-radius:20px;
+	
+	
+}	
+.img2 h2{
+   height:auto;
+    margin-left:20px;
+   margin-right:20px;
+	
+	
+}	
+.img2 h1{
+   height:auto;
+    margin-left:20px;
+   margin-right:20px;
+	
+	
+}	
+
+.juntos{
+	 
+   
+	justify-content:center;
+	display:flex;
+	flex-wrap:wrap;
+	
+}	
+
+.juntitos{
+	width:100%;
+	height:auto;
+	display:flex;
+	border-style:double;
+   border-color:#fcba03;
+   border-radius:20px;
+}
+
+.juntitos h3{
+	flex-wrap:wrap;
+	justify-content:center;
+	align-items:center;
+	display:flex;
+}
+
+.hambre {
+	
+	width:100%;
+}
+
+.hambre h1{
+	font-family:"Bebas Neue";
+	width:100%;
+	height:auto;
+	text-align:center;
+	
+	
+}	
+.hambre h2{
+	font-family:"Akira Expanded Demo";
+	width:100%;
+	height:auto;
+	text-align:center;
+	
+	
+	
+}	
+.pedir{
+	height:300px;
+	width:100%;
+	display:flex;
+	justify-content:space-around;
+	flex-direction:row;
+	width:100%;
+}
+.ya img{height:auto;
+	width:100%;
+	display:flex;
+	 border-style:double;
+   border-color:#fcba03;
+   border-radius:20px;
+	
+}
+.rapi img{height:auto;
+	width:100%;
+	display:flex;
+	 border-style:double;
+   border-color:#fcba03;
+   border-radius:20px;
+}
+.glo img{
+height:auto;
+width:100%;
+ border-style:double;
+   border-color:#fcba03;
+   border-radius:20px;
+	
+	display:flex;
+}	
+
+.mapayhorario{
+	width:100%;
+	height:auto;
+	display:flex;
+	flex-wrap:wrap;
+}
+
+.mapa{
+	width:50%;
+	height:auto;
+}
+
+.mapa img{
+	width:100%;
+	height:auto;
+	border-style:double;
+    border-color:#fcba03;
+    border-radius:20px;
+}
+
+.horario{
+	width:50%;
+	height:auto;
+}
+
+.horario h1{
+	text-align:center;
+}
+
+.horario h3{
+	text-align:center;
+}
+h1{color:#b89018;
+	
+}
+h2{color:white;
+ /*margin-left:200px;
+   margin-right:200px;*/
+
+	}
+h3{color:white;
+
+  margin-left:100px;
+   margin-right:100px;
+
+	}
