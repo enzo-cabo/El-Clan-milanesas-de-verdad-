@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
 
-     <head> <title>Promos</title>
+     <head> <title>El Clan</title>
          <link href = "estilos.css" rel = "stylesheet" type = "text/css" />
          <meta charset="utf-8">
 		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		 
 		 <link rel="icon" href="imagenes/logo_icon.jpg">
-		 
-		 <!-- Start WOWSlider.com HEAD section -->
-			
-		<!-- End WOWSlider.com HEAD section -->
+		<script src="clan.js"></script>
+		
+	<!-- Start WOWSlider.com HEAD section -->
+		<link rel="stylesheet" type="text/css" href="engine1/style.css" />
+		<script type="text/javascript" src="engine1/jquery.js"></script>
+	<!-- End WOWSlider.com HEAD section -->
      </head>
  
      <body>
+	
 	     <header>
     <div class="logo">
 	<a href="index.html" title="Nosotros">
@@ -30,27 +33,23 @@
     <nav id="navMenu">
         <a href="nosotros.html" title="Nosotros">NOSOTROS</a>
         <a href="" title="Productos">PRODUCTOS</a>
-        <a href="" title="Locales">LOCALES</a>
+        <a href="locales.html" title="Locales">LOCALES</a>
         <a href="franquicias.html" title="Franquicias">FRANQUICIAS</a>
         <a href="creditos.html" title="Creditos">AUTORES</a>
         <a href="" title="Promos">PROMOS</a>
         <a href="pedilo.html" title="Pedilo">PEDILO</a>
     </nav>
 </header>
-		 <!--aca va el slider --!>
-		 
-		  <!-- Start WOWSlider.com BODY section -->
-	
-			<!-- End WOWSlider.com BODY section -->
-			
-		 <main>
-		 
-		  <h1></h1>	 
-			
-		 
+<main>
 		 </main>
+		 <div class="local">
+		 <h1>Nuestros Locales</h1>
+		 </div>
 		 
-		 <footer>
+		 
+		 
+		 
+		<footer>
     <div class="footer-container">
         <!-- Sección Navegación -->
         <div class="footer-section">
@@ -91,7 +90,7 @@
         </div>
 
         <!-- Sección Logo y Redes -->
-         <div class="footer-section footer-logo">
+		   <div class="footer-section footer-logo">
 		<img src="imagenes/logo.png" alt="El Clan Logo">
 		<p>Nuestro ecosistema gastronómico está compuesto por milanesas que reflejan nuestra pasión por la comida bien hecha.</p>
 		
@@ -114,20 +113,19 @@
 		</div>
 	</div>
 
-    <!-- Footer Bottom -->
-    <div class="footer-bottom">
-        <p>TEL: +54911 5264-2524</p>
-        <p>© Copyright 2025 - Todos los derechos reservados</p>
-        <p>Sitio Desarrollado por <a href="creditos.html">Enzo & Julian</a></p>
-    </div>
+		<!-- Footer Bottom -->
+		<div class="footer-bottom">
+			<p>TEL: +54911 2025-7565</p>
+			<p>© Copyright 2025 - Todos los derechos reservados</p>
+			<p>Sitio Desarrollado por <a href="creditos.html">Enzo & Julian</a></p>
+		</div>
 
     <!-- Botón WhatsApp -->
     <a href="https://wa.me/5491123207565" class="boton-wsp" target="_blank">
         <img src="imagenes/whastapp.png" alt="Contacto WhatsApp">
     </a>
 </footer>
-		 	
-<script>
+		 	 <script>
     // Menú hamburguesa
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
@@ -153,7 +151,7 @@
             navMenu.classList.remove('active');
         }
     });
-</script>			
+</script>
 		 </body>
   
  </html>

@@ -38,7 +38,7 @@ body{
 header{
 	height:auto;
 	width:100%;
-	background: transparent;
+	background:rgba(0,0,0,0.90);
 	display:flex;
 	justify-content: space-evenly;
 	align-items: center;
@@ -140,7 +140,7 @@ main{
 footer{
 	height:auto;
 	width:100%;
-	background-color:#000000;
+	background-color:rgba(0,0,0,0.90);
 	padding: 40px 20px 20px 20px;
 	display: flex;
 	flex-direction: column;
@@ -251,6 +251,10 @@ footer h3{
 .footer-social a img {
 	width: 24px;
 	height: 24px;
+	object-fit: contain;
+}
+
+.footer-social a:hover img {
 	filter: brightness(0) invert(1);
 }
 
@@ -367,6 +371,9 @@ footer h3{
 
 .hambre{
 	width:100%;
+	padding: 40px 20px;
+	text-align: center;
+	position: relative;
 }
 
 .hambre h1{
@@ -374,6 +381,34 @@ footer h3{
 	width:100%;
 	height:auto;
 	text-align:center;
+	font-size: 5rem;
+	color: #b89018;
+	text-shadow: 
+		0 0 10px rgba(184, 144, 24, 0.8),
+		0 0 20px rgba(184, 144, 24, 0.6),
+		0 0 30px rgba(184, 144, 24, 0.4),
+		3px 3px 6px rgba(0, 0, 0, 0.8);
+	animation: pulse-text 2s ease-in-out infinite;
+	margin: 20px 0;
+	letter-spacing: 5px;
+}
+
+@keyframes pulse-text {
+	0%, 100% {
+		transform: scale(1);
+		text-shadow: 
+			0 0 10px rgba(184, 144, 24, 0.8),
+			0 0 20px rgba(184, 144, 24, 0.6),
+			0 0 30px rgba(184, 144, 24, 0.4);
+	}
+	50% {
+		transform: scale(1.05);
+		text-shadow: 
+			0 0 20px rgba(184, 144, 24, 1),
+			0 0 30px rgba(184, 144, 24, 0.8),
+			0 0 40px rgba(184, 144, 24, 0.6),
+			0 0 50px rgba(252, 186, 3, 0.4);
+	}
 }	
 
 .hambre h2{
@@ -382,42 +417,108 @@ footer h3{
 	height:auto;
 	text-align:center;
 	color:white;
+	font-size: 2.5rem;
+	animation: slide-in-left 1s ease-out;
+	margin-bottom: 30px;
+	letter-spacing: 3px;
+}
+
+@keyframes slide-in-left {
+	from {
+		opacity: 0;
+		transform: translateX(-100px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
 }
 	
 .pedir{
-	height:300px;
+	height: auto;
 	width:100%;
 	display:flex;
 	justify-content:space-around;
 	flex-direction:row;
-	width:100%;
+	padding: 40px 20px;
+	gap: 30px;
+}
+
+.ya, .rapi, .glo {
+	flex: 1;
+	position: relative;
+	overflow: hidden;
+	border-radius: 20px;
+	transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	cursor: pointer;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.ya::before, .rapi::before, .glo::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(135deg, rgba(184, 144, 24, 0.2), transparent);
+	opacity: 0;
+	transition: opacity 0.4s ease;
+	
+}
+
+.ya:hover::before, .rapi:hover::before, .glo:hover::before {
+	opacity: 1;
+}
+
+.ya:hover, .rapi:hover, .glo:hover {
+	transform: translateY(-15px) scale(1.05);
+	box-shadow: 
+		0 20px 40px rgba(184, 144, 24, 0.4),
+		0 0 50px rgba(184, 144, 24, 0.2);
+	animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+	0%, 100% { transform: translateY(-15px) scale(1.05) rotate(0deg); }
+	25% { transform: translateY(-15px) scale(1.05) rotate(-2deg); }
+	75% { transform: translateY(-15px) scale(1.05) rotate(2deg); }
+}
+
+.ya img, .rapi img, .glo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: all 0.4s ease;
+}
+
+.ya:hover img, .rapi:hover img, .glo:hover img {
+	transform: scale(1.1);
+	filter: brightness(1.2) contrast(1.1);
 }
 
 .ya img{
 	height:auto;
 	width:100%;
 	display:flex;
-	border-style:double;
-	border-color:#fcba03;
 	border-radius:20px;
+	border-width: 4px;
 }
 
 .rapi img{
 	height:auto;
 	width:100%;
 	display:flex;
-	border-style:double;
-	border-color:#fcba03;
 	border-radius:20px;
+	border-width: 4px;
 }
 
 .glo img{
 	height:auto;
 	width:100%;
-	border-style:double;
-	border-color:#fcba03;
 	border-radius:20px;
 	display:flex;
+	border-width: 4px;
 }	
 
 .mapayhorario{
@@ -425,28 +526,79 @@ footer h3{
 	height:auto;
 	display:flex;
 	flex-wrap:wrap;
+	justify-content:center;
+	padding: 40px 20px;
+	gap: 30px;
+	border-radius: 20px;
+	margin: 20px 0;
 }
 
 .mapa{
-	width:50%;
+	width:48%;
 	height:auto;
+	position: relative;
+	overflow: hidden;
+	border-radius: 20px;
+	transition: all 0.4s ease;
+}
+
+.mapa:hover {
+	transform: scale(1.02);
+	box-shadow: 0 15px 40px rgba(184, 144, 24, 0.3);
 }
 
 .mapa img{
 	width:100%;
 	height:auto;
-	border-style:double;
-    border-color:#fcba03;
     border-radius:20px;
+	transition: all 0.4s ease;
+	border-width: 4px;
+}
+
+.mapa:hover img {
+	transform: scale(1.05);
+	filter: brightness(1.1);
 }
 
 .horario{
-	width:50%;
+	width:48%;
 	height:auto;
+	background: rgba(184, 144, 24, 0.1);
+	border: 2px solid #b89018;
+	border-radius: 20px;
+	padding: 30px;
+	backdrop-filter: blur(5px);
+	transition: all 0.4s ease;
+}
+
+.horario:hover {
+	background: rgba(184, 144, 24, 0.2);
+	box-shadow: 0 0 30px rgba(184, 144, 24, 0.4);
+	transform: translateY(-5px);
 }
 
 .horario h1{
 	text-align:center;
+	color: #b89018;
+	font-family: "Bebas Neue";
+	font-size: 3rem;
+	margin-bottom: 30px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	animation: glow-title 2s ease-in-out infinite;
+}
+
+@keyframes glow-title {
+	0%, 100% {
+		text-shadow: 
+			0 0 10px rgba(184, 144, 24, 0.5),
+			2px 2px 4px rgba(0, 0, 0, 0.5);
+	}
+	50% {
+		text-shadow: 
+			0 0 20px rgba(184, 144, 24, 0.8),
+			0 0 30px rgba(252, 186, 3, 0.5),
+			2px 2px 4px rgba(0, 0, 0, 0.5);
+	}
 }
 
 .horario h3{
@@ -454,9 +606,25 @@ footer h3{
 	color:white;
 }
 
-h4{
-	text-align:center;
-	color:white;
+.horario h4 {
+	text-align: center;
+	color: white;
+	font-size: 16px;
+	padding: 12px;
+	margin: 8px 0;
+	background: rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	border-left: 4px solid #b89018;
+	transition: all 0.3s ease;
+	font-family: "Bebas", sans-serif;
+	letter-spacing: 1px;
+}
+
+.horario h4:hover {
+	background: rgba(184, 144, 24, 0.2);
+	transform: translateX(10px);
+	border-left: 4px solid #fcba03;
+	box-shadow: 0 5px 15px rgba(184, 144, 24, 0.3);
 }
 
 .neon-text {
@@ -526,17 +694,345 @@ h4{
 	color:white;
 	font-family:"Akira Expanded Demo";
 	text-align: center;
+	font-size: 1.8rem;
+	margin: 40px 0 20px 0;
+	animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+	from {
+		opacity: 0;
+		transform: translateY(-30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 .colab h1{
 	color:#b89018;
 	font-family:"Akira Expanded Demo";
 	text-align: center;
+	font-size: 4rem;
+	text-shadow: 
+		0 0 20px rgba(184, 144, 24, 0.8),
+		0 0 40px rgba(184, 144, 24, 0.5),
+		3px 3px 6px rgba(0, 0, 0, 0.8);
+	animation: glow-pulse 3s ease-in-out infinite;
+	margin: 20px 0;
+	letter-spacing: 4px;
+}
+
+@keyframes glow-pulse {
+	0%, 100% {
+		text-shadow: 
+			0 0 20px rgba(184, 144, 24, 0.8),
+			0 0 40px rgba(184, 144, 24, 0.5),
+			3px 3px 6px rgba(0, 0, 0, 0.8);
+	}
+	50% {
+		text-shadow: 
+			0 0 30px rgba(184, 144, 24, 1),
+			0 0 60px rgba(252, 186, 3, 0.8),
+			0 0 80px rgba(252, 186, 3, 0.5),
+			3px 3px 6px rgba(0, 0, 0, 0.8);
+	}
+}
+
+.logo-franquicia {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 40px 0;
+	perspective: 1000px;
+}
+
+.logo-franquicia a {
+	display: block;
+	transition: all 0.5s ease;
+	transform-style: preserve-3d;
+}
+
+.logo-franquicia img {
+	max-width: 400px;
+	height: auto;
+	border: 4px solid #b89018;
+	border-radius: 20px;
+	box-shadow: 
+		0 10px 40px rgba(184, 144, 24, 0.4),
+		0 0 60px rgba(184, 144, 24, 0.2);
+	transition: all 0.5s ease;
+	animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+	0%, 100% {
+		transform: translateY(0px) rotateY(0deg);
+	}
+	25% {
+		transform: translateY(-15px) rotateY(5deg);
+	}
+	50% {
+		transform: translateY(-20px) rotateY(0deg);
+	}
+	75% {
+		transform: translateY(-15px) rotateY(-5deg);
+	}
+}
+
+.logo-franquicia a:hover img {
+	transform: scale(1.1) rotateY(10deg);
+	box-shadow: 
+		0 20px 60px rgba(184, 144, 24, 0.6),
+		0 0 100px rgba(252, 186, 3, 0.4);
+	filter: brightness(1.2);
+}
+
+.lomo {
+	max-width: 900px;
+	margin: 40px auto;
+	padding: 40px;
+	background: linear-gradient(135deg, rgba(184, 144, 24, 0.15), rgba(0, 0, 0, 0.6));
+	border: 3px solid #b89018;
+	border-radius: 20px;
+	backdrop-filter: blur(10px);
+	box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+	position: relative;
+	overflow: hidden;
+	transition: all 0.4s ease;
+}
+
+.lomo::before {
+	content: '';
+	position: absolute;
+	top: -50%;
+	left: -50%;
+	width: 200%;
+	height: 200%;
+	background: linear-gradient(
+		45deg,
+		transparent,
+		rgba(184, 144, 24, 0.1),
+		transparent
+	);
+	transform: rotate(45deg);
+	animation: shine 3s infinite;
+}
+
+@keyframes shine {
+	0% {
+		transform: translateX(-100%) translateY(-100%) rotate(45deg);
+	}
+	100% {
+		transform: translateX(100%) translateY(100%) rotate(45deg);
+	}
+}
+
+.lomo:hover {
+	transform: translateY(-10px);
+	box-shadow: 
+		0 25px 70px rgba(184, 144, 24, 0.4),
+		0 0 80px rgba(184, 144, 24, 0.2);
+	border-color: #fcba03;
 }
 
 .lomo h2{
 	color:white;
 	font-family:"Bebas Neue";
+	font-size: 1.3rem;
+	line-height: 2rem;
+	text-align: justify;
+	position: relative;
+	z-index: 1;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.beneficios-franquicia {
+	max-width: 1200px;
+	margin: 60px auto;
+	padding: 20px;
+}
+
+.beneficios-titulo {
+	text-align: center;
+	color: #b89018;
+	font-family: "Bebas Neue";
+	font-size: 3rem;
+	margin-bottom: 50px;
+	text-shadow: 0 0 20px rgba(184, 144, 24, 0.6);
+	animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.beneficios-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 30px;
+	padding: 20px;
+}
+
+.beneficio-card {
+	background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(184, 144, 24, 0.1));
+	border: 2px solid #b89018;
+	border-radius: 15px;
+	padding: 30px;
+	text-align: center;
+	transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	transform-style: preserve-3d;
+}
+
+.beneficio-card::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border-radius: 50%;
+	background: rgba(184, 144, 24, 0.2);
+	transform: translate(-50%, -50%);
+	transition: all 0.6s ease;
+}
+
+.beneficio-card:hover::before {
+	width: 300px;
+	height: 300px;
+}
+
+.beneficio-card:hover {
+	transform: translateY(-15px) rotateX(5deg);
+	box-shadow: 
+		0 20px 50px rgba(184, 144, 24, 0.4),
+		0 0 60px rgba(184, 144, 24, 0.2);
+	border-color: #fcba03;
+}
+
+.beneficio-icono {
+	font-size: 3rem;
+	margin-bottom: 20px;
+	display: inline-block;
+	animation: bounce 2s infinite;
+	filter: drop-shadow(0 0 10px rgba(184, 144, 24, 0.6));
+}
+
+@keyframes bounce {
+	0%, 100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+}
+
+.beneficio-card:hover .beneficio-icono {
+	animation: spin 0.6s ease;
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg) scale(1);
+	}
+	to {
+		transform: rotate(360deg) scale(1.2);
+	}
+}
+
+.beneficio-card h3 {
+	color: #b89018;
+	font-family: "Bebas Neue";
+	font-size: 1.8rem;
+	margin: 15px 0;
+	position: relative;
+	z-index: 1;
+}
+
+.beneficio-card p {
+	color: white;
+	font-family: "Bebas";
+	font-size: 1rem;
+	line-height: 1.6;
+	position: relative;
+	z-index: 1;
+}
+
+.cta-franquicia {
+	text-align: center;
+	margin: 60px 0;
+	padding: 40px;
+	background: linear-gradient(135deg, rgba(184, 144, 24, 0.2), rgba(0, 0, 0, 0.5));
+	border-radius: 20px;
+}
+
+.cta-franquicia h2 {
+	color: white;
+	font-family: "Bebas Neue";
+	font-size: 2.5rem;
+	margin-bottom: 30px;
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0%, 100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.05);
+	}
+}
+
+.btn-franquicia {
+	display: inline-block;
+	padding: 20px 50px;
+	background: linear-gradient(135deg, #b89018, #fcba03);
+	color: black;
+	font-family: "Bebas Neue";
+	font-size: 1.5rem;
+	text-decoration: none;
+	border-radius: 50px;
+	border: 3px solid #fcba03;
+	box-shadow: 0 10px 30px rgba(184, 144, 24, 0.4);
+	transition: all 0.4s ease;
+	position: relative;
+	overflow: hidden;
+	font-weight: bold;
+}
+
+.btn-franquicia::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 0;
+	height: 0;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+	transition: all 0.6s ease;
+}
+
+.btn-franquicia:hover::before {
+	width: 400px;
+	height: 400px;
+}
+
+.btn-franquicia:hover {
+	transform: translateY(-5px) scale(1.05);
+	box-shadow: 0 20px 50px rgba(184, 144, 24, 0.6);
+	border-color: white;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
@@ -571,9 +1067,9 @@ h4{
   to { border-right-color: transparent; }
 }
 
-/* ============================================
+/*
    MENÚ HAMBURGUESA PARA MÓVILES
-   ============================================ */
+   */
 
 .menu-toggle {
 	display: none;
@@ -635,9 +1131,9 @@ h4{
 	animation: none;
 }
 
-/* ============================================
+/*
    RESPONSIVE PARA CELULARES
-   ============================================ */
+    */
 
 /* Tablets y pantallas medianas */
 @media screen and (max-width: 768px) {
@@ -649,8 +1145,9 @@ h4{
 	}
 	
 	.logo img {
-		width: 120px;
+		width: 200px;
 		height: auto;
+		padding-left:115%;
 	}
 	
 	/* Mostrar botón hamburguesa */
@@ -783,10 +1280,17 @@ h4{
 	.ya, .rapi, .glo {
 		width: 90%;
 		margin: 0 auto;
+		min-height: 200px;
+	}
+	
+	.ya:hover, .rapi:hover, .glo:hover {
+		transform: translateY(-10px) scale(1.02);
 	}
 	
 	.mapayhorario {
+		
 		flex-direction: column;
+		padding: 20px 10px;
 	}
 	
 	.mapa, .horario {
@@ -794,8 +1298,17 @@ h4{
 		padding: 10px;
 	}
 	
+	.horario {
+		padding: 20px;
+	}
+	
+	.horario h1 {
+		font-size: 2.5rem;
+	}
+	
 	.horario h4 {
 		font-size: 14px;
+		padding: 10px;
 	}
 	
 	.boton-wsp {
@@ -824,12 +1337,43 @@ h4{
 		font-size: 16px;
 		padding: 15px;
 	}
+	
+	.logo-franquicia img {
+		max-width: 300px;
+	}
+	
+	.lomo {
+		padding: 25px;
+		margin: 20px;
+	}
+	
+	.beneficios-titulo {
+		font-size: 2.5rem;
+	}
+	
+	.beneficios-grid {
+		grid-template-columns: 1fr;
+		gap: 20px;
+		padding: 10px;
+	}
+	
+	.cta-franquicia h2 {
+		font-size: 2rem;
+	}
+	
+	.btn-franquicia {
+		padding: 15px 40px;
+		font-size: 1.3rem;
+	}
 }
 
 /* Celulares pequeños */
 @media screen and (max-width: 480px) {
 	.logo img {
-		width: 100px;
+		width: 160px;
+		height: auto;
+		
+		
 	}
 	
 	nav {
@@ -880,21 +1424,22 @@ h4{
 	}
 	
 	.hambre h1 {
-		font-size: 2rem;
+		font-size: 3rem;
 	}
 	
 	.hambre h2 {
-		font-size: 1.2rem;
+		font-size: 1.8rem;
 		padding: 10px;
 	}
 	
 	.horario h1 {
-		font-size: 1.5rem;
+		font-size: 2rem;
 	}
 	
 	.horario h4 {
-		font-size: 12px;
+		font-size: 13px;
 		line-height: 20px;
+		padding: 8px;
 	}
 	
 	footer h3 {
@@ -932,10 +1477,56 @@ h4{
 		padding: 10px;
 		line-height: 22px;
 	}
+	
+	.logo-franquicia img {
+		max-width: 250px;
+	}
+	
+	.lomo {
+		padding: 20px;
+		margin: 15px;
+	}
+	
+	.beneficios-titulo {
+		font-size: 2rem;
+		margin-bottom: 30px;
+	}
+	
+	.beneficio-card {
+		padding: 20px;
+	}
+	
+	.beneficio-card h3 {
+		font-size: 1.5rem;
+	}
+	
+	.beneficio-icono {
+		font-size: 2.5rem;
+	}
+	
+	.cta-franquicia {
+		padding: 30px 20px;
+		margin: 40px 10px;
+	}
+	
+	.cta-franquicia h2 {
+		font-size: 1.8rem;
+	}
+	
+	.btn-franquicia {
+		padding: 15px 35px;
+		font-size: 1.2rem;
+	}
 }
 
 /* Celulares muy pequeños */
 @media screen and (max-width: 360px) {
+	
+	.logo img{
+		width: 70%;
+		height:auto;
+		
+	}
 	nav {
 		width: 85%;
 	}
@@ -953,6 +1544,19 @@ h4{
 		font-size: 12px;
 		line-height: 20px;
 	}
+}
+.local h1{
+	color:white;
+	font-family:"Akira Expanded Demo";
+	text-align: center;
+	font-size: 4rem;
+	text-shadow: 
+		0 0 20px rgba(184, 144, 24, 0.8),
+		0 0 40px rgba(184, 144, 24, 0.5),
+		3px 3px 6px rgba(0, 0, 0, 0.8);
+	animation: glow-pulse 3s ease-in-out infinite;
+	margin: 20px 0;
+	letter-spacing: 4px;ase-out;
 }
 
 /* RESPONSIVE FOOTER */
@@ -1020,43 +1624,3 @@ h4{
 		font-size: 11px;
 	}
 }
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
